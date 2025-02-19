@@ -49,6 +49,8 @@ mkdir -p ./scripts
 # Name of the startup script
 script_file="./scripts/${program_name}_tray.sh"
 
+icon_path=$(realpath "$icon_path")
+
 # Create the startup script
 cat > "$script_file" <<EOF
 #!/bin/bash
@@ -109,10 +111,7 @@ EOF
 
 # Make the script executable
 chmod +x "$script_file"
-
-# Get real paths
 script_file=$(realpath "$script_file")
-icon_path=$(realpath "$icon_path")
 
 echo "Startup script created at: $script_file"
 
